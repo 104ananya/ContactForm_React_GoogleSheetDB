@@ -3,7 +3,7 @@ import { FaLinkedin, FaGithub, FaTwitter } from "react-icons/fa";
 
 const Details = () => {
   return (
-    <div className="p-6 px-24 flex flex-col justify-evenly ">
+    <div className="p-6 md:px-24 flex flex-col justify-evenly ">
       {/* Heading */}
       <div className="mb-4">
         <h1 className="text-4xl font-bold mb-4">

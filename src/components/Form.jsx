@@ -56,7 +56,7 @@ const Form = () => {
   };
 
   return (
-    <div className="p-6 bg-white shadow-lg rounded-lg mr-16">
+    <div className="p-6 bg-white shadow-lg rounded-lg md:mr-16">
       <h2 className="text-xl font-semibold mb-4">Contact Form</h2>
 
       <form className="form" onSubmit={handleSubmit}>
@@ -130,7 +130,7 @@ const Form = () => {
         </div>
         <button
           type="submit"
-          className=" bg-pink text-white font-semibold py-2 px-4 rounded-lg focus:outline-none focus:bg-light-pink"
+          className="w-full md:w-auto bg-pink text-white font-semibold py-2 px-4 rounded-lg focus:outline-none focus:bg-light-pink"
         >
           Submit
         </button>
