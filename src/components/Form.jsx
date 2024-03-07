@@ -20,22 +20,46 @@ const Form = () => {
     });
   };
 
+  const API_URL = process.env.URL;
+
+
   // An event handler function that handles the form submission
+  //   * This function sends a POST request to the provided API endpoint to submit
+  //   * the form data and then resets the form fields.
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log(data);
 
     try {
-      const response = await fetch(
-        'https://v1.nocodeapi.com/hehua/google_sheets/NauSDIrdYKyTOLVe?tabId=Sheet1'
-      )
-    } catch (error) {}
+      const response = await fetch(API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+
+        body: JSON.stringify([
+          [name, email, phone, message, new Date().toLocaleDateString()],
+        ]),
+      });
+
+      await response.json();
+      setData({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
     <div className="p-6 bg-white shadow-lg rounded-lg mr-16">
       <h2 className="text-xl font-semibold mb-4">Contact Form</h2>
-      <form className="form">
+
+      <form className="form" onSubmit={handleSubmit}>
         <div className="mb-4">
           <label
             htmlFor="name"
